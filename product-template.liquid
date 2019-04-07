@@ -1,0 +1,29 @@
+
+Add to cart button Html
+=================================
+
+<button type="submit" name="add" id="AddToCart" class="{{ btn_class }}"{% for block in section.blocks %}{% if product.title contains block.settings.word %} onmouseover="this.style.backgroundColor='{{block.settings.background}}';"{% endif %}{% endfor %} onmouseout="this.style.backgroundColor='{{settings.color_primary}}';">
+    <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+</button>
+
+Section block settings
+=================================
+
+	"blocks": [
+      {
+        "type": "Addtocart",
+        "name": "Hover Color",
+        "settings": [
+          {
+            "type": "text",
+            "id": "word",
+            "label": "Product Title Contains"
+          },
+          {
+            "type": "color",
+            "id": "background",
+            "label": "Hover Color"
+          }
+        ]
+      }
+    ]
